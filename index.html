@@ -23,6 +23,8 @@
                 // these IDs from the previous steps
                 emailjs.sendForm('default_service', 'template_lfmum2b', this)
                     .then(function() {
+						alert('Thank you, Your mail is sent!');
+						document.getElementById('contact-form').reset();
                         console.log('SUCCESS!');
                     }, function(error) {
                         console.log('FAILED...', error);
