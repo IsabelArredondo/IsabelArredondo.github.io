@@ -7,10 +7,29 @@
 <html>
 
 <head>
-	<!-- webform.pw -->
-	<!-- <script> web_form_id = "3a391d27-a87a-42cf-909d-568088446df6" </script>
-	<script type="text/javascript" src="https://webform.pw/client/formclient.nocache.js">
-	</script> -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('KwDKlFq6YImwHcAgn');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('default_service', 'template_lfmum2b', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
 
 	<title>Isabel Arredondo</title>
 	<meta charset="utf-8" />
@@ -130,7 +149,8 @@
 			<article id="contact">
 				<h2 class="major">Contact Me</h2>
 
-				<form method="post" action="#">
+				<form id="contact-form" method="post" action="#">
+					<input type="hidden" name="contact_number">
 					<div class="fields">
 						<div class="field half">
 							<label for="name">Name</label>
@@ -150,6 +170,8 @@
 						<li><input type="reset" value="Reset" /></li>
 					</ul>
 				</form>
+
+				
 				<ul class="icons">
 					<li><a href="https://angel.co/u/izzy-around" class="icon brands fa-angellist"><span
 								class="label">Facebook</span></a></li>
