@@ -33,6 +33,18 @@ body {
 	line-height: 1;
 }
 
+.profilePic {
+    width: 150px;
+    margin-bottom: -8px;
+    height: 150px;
+    margin-left: 150%;
+}
+
+.contain {
+ display: flex;
+
+}
+
 ol, ul {
 	list-style: none;
 }
@@ -211,6 +223,12 @@ input, select, textarea {
 			width: max-content;
 			padding-bottom: 0.5rem;
 			margin: 0 0 2rem 0;
+		}
+
+		h2.conimg {
+			border-bottom: solid 1px #ffffff;
+			padding: 0px;
+			margin-top: 3rem;
 		}
 
 	h1 {
